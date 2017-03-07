@@ -9,7 +9,7 @@ Use it like this in your project:
         <VersionPrefix>1.2.3</VersionPrefix>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="DasMulli.SimpleGitVersion" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="DasMulli.SimpleGitVersion" Version="1.0.0-*" PrivateAssets="All" />
     </ItemGroup>
 </Project>
 ```
@@ -59,7 +59,7 @@ But if you like to live dangerously, you can easily enable SemVer 2.0.0 versions
         <UseCompatGitVersion>false</UseCompatGitVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="DasMulli.SimpleGitVersion" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="DasMulli.SimpleGitVersion" Version="1.0.0-*" PrivateAssets="All" />
     </ItemGroup>
 </Project>
 ```
@@ -88,7 +88,7 @@ The well-known `VersionPrefix` is considered while the final version is calculat
         <IncludeBranchInGitVersion>false</IncludeBranchInGitVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="DasMulli.SimpleGitVersion" Version="1.0.0" PrivateAssets="All" />
+        <PackageReference Include="DasMulli.SimpleGitVersion" Version="1.0.0-*" PrivateAssets="All" />
     </ItemGroup>
 </Project>
 ```
