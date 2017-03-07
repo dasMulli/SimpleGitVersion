@@ -6,7 +6,14 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     
     <VersionPrefix>1.0.0</VersionPrefix>
-    
+    <Description>Simple Git versioning integrated into SDK-based msbuild projects. See https://github.com/dasMulli/SimpleGitVersion for details</Description>
+    <Authors>Martin Andreas Ullrich</Authors>
+    <PackageProjectUrl>https://github.com/dasMulli/SimpleGitVersion</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/dasMulli/SimpleGitVersion/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>dotnet;msbuild;nuget-package;git;versioning</PackageTags>
+
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
     <EnableDefaultItems>false</EnableDefaultItems>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
