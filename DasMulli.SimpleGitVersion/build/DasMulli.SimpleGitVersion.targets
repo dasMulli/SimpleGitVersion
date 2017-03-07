@@ -87,7 +87,8 @@
  
     ========================================================================================================================
     -->
-  <Target Name="CreateGitVersionSuffix" BeforeTargets="PrepareForBuild" Condition=" '$(DisableGitVersionSuffix)' != 'true' ">
+  <Target Name="CreateGitVersionSuffix" BeforeTargets="PrepareForBuild;GenerateNuSpec" Condition=" '$(DisableGitVersionSuffix)' != 'true' ">
+    <Error Text="This NuGet package is only supported for use with .NET SDK based projects." Condition=" $(MSBuildAllProjects.Contains('Microsoft.NET.Sdk')) != 'true' " />
     <Error Text="GitBranchToReleaseLabelMapping item '%(GitBranchToReleaseLabelMapping.Identity)' does not have a ReleaseLabel metadata"
            Condition=" @(GitBranchToReleaseLabelMapping) != '' and '%(GitBranchToReleaseLabelMapping.ReleaseLabel)' == '' " />
 
@@ -127,4 +128,5 @@
       <PackageVersion>$(Version)</PackageVersion>
     </PropertyGroup>
   </Target>
+  
 </Project>

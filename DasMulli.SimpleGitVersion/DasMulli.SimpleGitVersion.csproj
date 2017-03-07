@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="build/DasMulli.SimpleGitVersion.props" />
+  <Import Project="build\DasMulli.SimpleGitVersion.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <TargetFramework>netstandard1.0</TargetFramework>
     
     <VersionPrefix>1.0.0</VersionPrefix>
     
@@ -19,7 +19,11 @@
   <ItemGroup>
     <None Include="build\**\*" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="\build" />
   </ItemGroup>
+
+  <ItemGroup>
+    <GitBranchToReleaseLabelMapping Include="master" ReleaseLabel="rc1" />
+  </ItemGroup>
   
-  <Import Project="build/DasMulli.SimpleGitVersion.targets" />
+  <Import Project="build\DasMulli.SimpleGitVersion.targets" />
 
 </Project>
