@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="build/DasMulli.SimpleGitVersion.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    
+    <VersionPrefix>1.0.0</VersionPrefix>
+    
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoBuild>true</NoBuild>
+    <!-- don't warn about no code and no RuntimeMetadataVersion -->
+    <NoWarn>$(NoWarn);CS2008;CS8021</NoWarn>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="build\**\*" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="\build" />
+  </ItemGroup>
+  
+  <Import Project="build/DasMulli.SimpleGitVersion.targets" />
+
+</Project>
