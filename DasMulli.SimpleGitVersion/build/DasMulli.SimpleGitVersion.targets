@@ -102,7 +102,7 @@
 
     <PropertyGroup>
       <GitBranchNameSanitized>$(GitBranchName.Replace('/','-'))</GitBranchNameSanitized>
-      <GitCommitCountPadded>$([System.Int32]::Parse('$(GitCommitCount)').ToString('D7'))</GitCommitCountPadded>
+      <GitCommitCountPadded>$(GitCommitCount.PadLeft(7, '0'))</GitCommitCountPadded>
 
       <UseCompatGitVersion Condition=" '$(UseCompatGitVersion)' == '' ">true</UseCompatGitVersion>
 
