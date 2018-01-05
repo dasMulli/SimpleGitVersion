@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <GitBranchToReleaseLabelMapping Include="master" ReleaseLabel="rc1" />
+    <GitBranchToReleaseLabelMapping Include="master" ReleaseLabel="rc2" />
   </ItemGroup>
   
   <Import Project="build\DasMulli.SimpleGitVersion.targets" />
