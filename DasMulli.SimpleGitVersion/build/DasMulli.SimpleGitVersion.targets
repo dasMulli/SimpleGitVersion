@@ -2,6 +2,8 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <GenerateNuspecDependsOn>CreateGitVersionSuffix;$(GenerateNuspecDependsOn)</GenerateNuspecDependsOn>
+    <GetPackageVersionDependsOn>CreateGitVersionSuffix;$(GetPackageVersionDependsOn)</GetPackageVersionDependsOn>
   </PropertyGroup>
   
   <!--
@@ -96,7 +98,7 @@
  
     ========================================================================================================================
     -->
-  <Target Name="CreateGitVersionSuffix" BeforeTargets="PrepareForBuild;GenerateNuSpec" Condition=" '$(DisableGitVersionSuffix)' != 'true' ">
+  <Target Name="CreateGitVersionSuffix" BeforeTargets="_GenerateRestoreProjectSpec;CollectPackageReferences;PrepareForBuild" Condition=" '$(DisableGitVersionSuffix)' != 'true' ">
     <Error Text="This NuGet package is only supported for use with .NET SDK based projects." Condition=" $(MSBuildAllProjects.Contains('Microsoft.NET.Sdk')) != 'true' " />
     <Error Text="GitBranchToReleaseLabelMapping item '%(GitBranchToReleaseLabelMapping.Identity)' does not have a ReleaseLabel metadata"
            Condition=" @(GitBranchToReleaseLabelMapping) != '' and '%(GitBranchToReleaseLabelMapping.ReleaseLabel)' == '' " />
