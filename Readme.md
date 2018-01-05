@@ -1,4 +1,4 @@
-# Super simple Git versioning
+# Super simple Git prerelease versioning
 This is a build utility package that adjusts your `csproj` / `vbproj` project's NuGet and `AssemblyInformalVersion` based on the current git repository's branch name and commit count by making use of the VS 2017 SDK-based project system.
 
 Use it like this in your project:
