@@ -8,7 +8,7 @@
     <VersionPrefix>1.0.0</VersionPrefix>
     <GitCommitCountPadLength>4</GitCommitCountPadLength>
 
-    <Description>Simple Git versioning integrated into SDK-based msbuild projects. See https://github.com/dasMulli/SimpleGitVersion for details</Description>
+    <Description>Simple Git prerelease versioning integrated into SDK-based msbuild projects. See https://github.com/dasMulli/SimpleGitVersion for details</Description>
     <Authors>Martin Andreas Ullrich</Authors>
     <PackageProjectUrl>https://github.com/dasMulli/SimpleGitVersion</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/dasMulli/SimpleGitVersion/master/LICENSE</PackageLicenseUrl>
