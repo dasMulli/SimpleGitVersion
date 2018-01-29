@@ -26,7 +26,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <None Include="build\**\*" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="\build" />
+    <None Include="build\**" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="\build" />
+    <None Include="buildCrossTargeting\**" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="\buildCrossTargeting" />
+    <None Include="Sdk\**" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="\Sdk" />
   </ItemGroup>
 
   <ItemGroup>
