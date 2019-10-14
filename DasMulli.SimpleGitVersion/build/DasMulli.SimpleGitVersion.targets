@@ -105,7 +105,7 @@
     ========================================================================================================================
     -->
   <Target Name="CreateGitVersionSuffix" BeforeTargets="_GenerateRestoreProjectSpec;CollectPackageReferences;PrepareForBuild" Condition=" '$(DisableGitVersionSuffix)' != 'true' ">
-    <Error Text="This NuGet package is only supported for use with .NET SDK based projects." Condition="'$(UsingMicrosoftNETSdk)'' != 'true' or '$(SuppressNotUsingNeSdkError)' == 'true'" />
+    <Error Text="This NuGet package is only supported for use with .NET SDK based projects." Condition="'$(UsingMicrosoftNETSdk)' != 'true' and '$(SuppressNotUsingNeSdkError)' != 'true'" />
     <Error Text="GitBranchToReleaseLabelMapping item '%(GitBranchToReleaseLabelMapping.Identity)' does not have a ReleaseLabel metadata"
            Condition=" @(GitBranchToReleaseLabelMapping) != '' and '%(GitBranchToReleaseLabelMapping.ReleaseLabel)' == '' " />
 
