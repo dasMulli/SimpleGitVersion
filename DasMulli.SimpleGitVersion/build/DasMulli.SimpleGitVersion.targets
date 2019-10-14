@@ -36,6 +36,10 @@
         Number of (minimum) characters to use for the git commit count.
         The git commit count will be padded with leading zeros (0) to reach this length.
         Defaults to 7.
+
+    GitCommitCountOffset:
+        Number of commits to subtract from the commit count to act as an offset for version numbers.
+        Can be overridden by metadata on GitBranchToReleaseLabelMapping.
         
     VersionSuffix:
         Any preexisting version suffix will be considered and the git information will be added to it:
@@ -57,11 +61,13 @@
         Example: Project contains:
           <ItemGroup>
             <GitBranchToReleaseLabelMapping Include="master" ReleaseLabel="rc" />
-            <GitBranchToReleaseLabelMapping Include="develop" ReleaseLabel="beta" />
+            <GitBranchToReleaseLabelMapping Include="develop" ReleaseLabel="beta" GitCommitCountOffset="20" />
           </ItemGroup>
         
         When built from the master branch, will result in version:
           1.0.0-rc-0000023
+        When built from the develop branch on comit number 24, will result in version:
+          2.0.0-beta-0000004
           
     Outputs / Properties Set:
     
@@ -99,7 +105,7 @@
     ========================================================================================================================
     -->
   <Target Name="CreateGitVersionSuffix" BeforeTargets="_GenerateRestoreProjectSpec;CollectPackageReferences;PrepareForBuild" Condition=" '$(DisableGitVersionSuffix)' != 'true' ">
-    <Error Text="This NuGet package is only supported for use with .NET SDK based projects." Condition=" $(MSBuildAllProjects.Contains('Microsoft.NET.Sdk')) != 'true' " />
+    <Error Text="This NuGet package is only supported for use with .NET SDK based projects." Condition="'$(UsingMicrosoftNETSdk)'' != 'true' or '$(SuppressNotUsingNeSdkError)' == 'true'" />
     <Error Text="GitBranchToReleaseLabelMapping item '%(GitBranchToReleaseLabelMapping.Identity)' does not have a ReleaseLabel metadata"
            Condition=" @(GitBranchToReleaseLabelMapping) != '' and '%(GitBranchToReleaseLabelMapping.ReleaseLabel)' == '' " />
 
